@@ -1,0 +1,14 @@
+// This file is for demonstration purposes, so feel free to delete it once everyone understands the repo
+.Welcome {
+  // Add your styles in here scoped to the component
+  position: relative;
+  padding: 50px;
+  width: 100%;
+  min-height: 100%;
+  background-color: var(--backdrop);
+
+  .intro-text {
+    max-width: 850px;
+    margin-left: 10px;
+  }
+}

@@ -1,0 +1,24 @@
+// This file is for demonstration purposes, so feel free to delete it once everyone understands the repo
+.TodoList {
+  .Todo {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 7px;
+    padding: 5px 15px;
+    margin: 5px 0;
+    list-style: none;
+    transition: background-color 0.7s;
+
+    &:hover {
+      background: rgb(204, 204, 204);
+    }
+
+    .status-icon {
+      font-size: 20px;
+      margin-right: 15px;
+      user-select: none;
+    }
+  }
+}
