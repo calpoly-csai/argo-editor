@@ -52,5 +52,5 @@ def update_ticker():
 
 if __name__ == '__main__':
     # Starts the application
-    window = webview.create_window('Style Transfer', entry, js_api=Api())
+    window = webview.create_window('Argo Editor', entry, js_api=Api())
     webview.start(update_ticker, debug=True)
