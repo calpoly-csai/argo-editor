@@ -4,9 +4,12 @@ A panoramic tour desktop editor for the Argo project.
 
 ## Requirements
 
-- Python 3
-- Node
-- virtualenv
+Make sure you have these dependencies installed before moving forward:
+
+- [Python 3.6-3.8.x](https://github.com/pyenv/pyenv)
+  - [install for Windows](https://github.com/pyenv-win/pyenv-win)
+- [Node](https://nodejs.org/en/)
+- [virtualenv](https://virtualenv.pypa.io/en/latest/installation.html)
 
 ## Installation
 
