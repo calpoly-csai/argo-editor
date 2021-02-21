@@ -4,8 +4,8 @@ const { useState, useEffect, useRef } = React;
 import "./MidasMVP.scss";
 
 export default function MidasMVP() {
-  const [sourceImage, setSourceImage] = useState(null);
-  const [depthImage, setDepthImage] = useState(null);
+  const [sourceImage, setSourceImage] = useState("");
+  const [depthImage, setDepthImage] = useState("");
 
   function handleFileUpload(e) {
     const file = e.target.files[e.target.files.length - 1];
@@ -17,16 +17,16 @@ export default function MidasMVP() {
   }
 
   function calculateDepth() {
-    console.log(pywebview.api.find_depth);
 
     pywebview.api.find_depth(sourceImage).then((depth) => {
       console.log("returned", depth);
+      alert("Done!")
       setDepthImage(depth);
     });
   }
 
   return (
-    <section>
+    <section className="MidasMVP">
       <h1>Midas</h1>
       <input type="file" onChange={handleFileUpload} />
       <img src={sourceImage} />

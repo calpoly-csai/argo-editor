@@ -5,15 +5,16 @@ from io import BytesIO
 from PIL import Image
 import tensorflow as tf
 
-ST_Model = hub.load('https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2')
+ST_Model = hub.load('https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2') 
 
-def apply_style_transfer(content_uri:str, style_uri:str) -> str:
+def apply_
+style_transfer(content_uri:str, style_uri:str) -> str:
     """
     Applies the style transfer effect to provided images.
 
     Returns base64 image representation.
     """
-    content_image = decode_image(content_uri)
+    content_image = decode_image(content_uri) 
     content_image = process_image(content_image)
     style_image = decode_image(style_uri)
     style_image = process_image(style_image)
@@ -41,7 +42,6 @@ def encode_image(img_array: np.array) -> str:
     image.save(data, "JPEG")
     data.seek(0)
     return base64.b64encode(data.read()).decode()
-
 
 
 def process_image(image_data:np.array) -> np.array:
