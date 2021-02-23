@@ -1,6 +1,6 @@
 /* global pywebview */
 import * as React from "react";
-const { useState, useEffect, useRef } = React;
+const { useState } = React;
 import "./MidasMVP.scss";
 
 export default function MidasMVP() {
@@ -17,10 +17,9 @@ export default function MidasMVP() {
   }
 
   function calculateDepth() {
-
+    if (!sourceImage) return;
     pywebview.api.find_depth(sourceImage).then((depth) => {
       console.log("returned", depth);
-      alert("Done!")
       setDepthImage(depth);
     });
   }
@@ -28,10 +27,15 @@ export default function MidasMVP() {
   return (
     <section className="MidasMVP">
       <h1>Midas</h1>
-      <input type="file" onChange={handleFileUpload} />
-      <img src={sourceImage} />
-      <img src={depthImage} />
-      <button onClick={calculateDepth}>Show Depth</button>
+      <div className="images">
+        <img src={sourceImage} />
+        <img src={depthImage} />
+      </div>
+
+      <div className="tab-bar">
+        <input type="file" onChange={handleFileUpload} />
+        <button onClick={calculateDepth}>Show Depth</button>
+      </div>
     </section>
   );
 }

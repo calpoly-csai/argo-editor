@@ -13,8 +13,6 @@ class Api:
         """
         Finds the z coordinate for every pixel in the image. Will be called when the user places modal on panorama.
         """
-        # if len(image) == 0:
-        #     return ""
         return midas_find_depth(image)
 
     def add_tour_asset(self, asset: str, type: str) -> dict:
