@@ -42,6 +42,6 @@
     "parcel-bundler": "1.12.4",
     "run-script-os": "1.0.7",
     "sass": "1.25.0",
-    "typescript": "^3.9.7"
+    "typescript": "^3.9.9"
   }
 }

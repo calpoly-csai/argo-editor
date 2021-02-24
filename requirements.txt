@@ -6,3 +6,5 @@ tensorflow
 numpy
 Pillow
 tensorflow_hub
+opencv-python
+intel-tensorflow
