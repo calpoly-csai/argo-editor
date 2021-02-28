@@ -1,0 +1,72 @@
+{
+  "title": "Cal Poly Tour",
+  "description": "A tour of Cal Poly",
+
+  "locations": {
+    "PAC": {
+      "title": "Performing Arts Center",
+      "description": "Where theatre performances happen",
+      "panorama": "",
+      "overlays": [
+        {
+          "title": "Example",
+          "description": "This is an example modal",
+          "position": [1, 2, 3],
+          "actions": [
+            {
+              "type": "external-link",
+              "title": "Google",
+              "link": "www.google.com"
+            },
+            {
+              "title": "Quad",
+              "description": "Goes to the Quad",
+              "position": [200, 200, 3],
+              "actions": [
+                {
+                  "type": "path",
+                  "title": "Go",
+                  "path": "<link-to-resource>",
+                  "destination": "Quad"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+
+    "Quad": {
+      "title": "University Center",
+      "description": "Where people hang out on Thursdays",
+      "panorama": "",
+      "overlays": [
+        {
+          "title": "Example",
+          "description": "This is an example modal",
+          "position": [1, 2, 3],
+          "actions": [
+            {
+              "type": "external-link",
+              "title": "Google",
+              "link": "www.google.com"
+            }
+          ]
+        },
+        {
+          "title": "PAC",
+          "description": "Goes to the PAC",
+          "position": [200, 200, 3],
+          "actions": [
+            {
+              "type": "path",
+              "title": "Go",
+              "path": "<link-to-resource>",
+              "destination": "PAC"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
