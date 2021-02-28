@@ -13,7 +13,6 @@ export default function LocationViewer() {
   const [overlays, setOverlays] = useState([]);
 
   function addOverlay(e) {
-    debugger;
     const position = { x: e.clientX, y: e.clientY };
     setOverlays([...overlays, position]);
   }

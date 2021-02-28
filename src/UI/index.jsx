@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { MemoryRouter as Router, Switch, Route } from "react-router-dom";
 
 import Tours from "./pages/Tours/Tours";
 import TourViewer from "./pages/TourViewer/TourViewer";
@@ -14,7 +14,7 @@ function App() {
       <Switch>
         <Route path="/tour/:tourName" component={TourViewer} />
         <Route path="/location/:locationName" component={LocationViewer} />
-        <Route path="/" exact component={Tours} />
+        <Route path="*" exact component={Tours} />
       </Switch>
     </Router>
   );

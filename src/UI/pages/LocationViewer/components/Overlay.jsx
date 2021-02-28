@@ -1,11 +1,24 @@
 import React from "react";
 const { useState } = React;
-import { X, ArrowLeft, Link } from "react-feather";
+import "./Overlay.scss";
+import {
+  Link,
+  ArrowRight,
+  ArrowLeft,
+  Aperture,
+  Database,
+  X as XIcon,
+} from "react-feather";
+
+import exampleTour from "../../../assets/example-tour.json";
 
 const views = {
   base: BaseView,
   actions: ActionsView,
   createLink: CreateLinkView,
+  createPortal: CreatePortalView,
+  createPath: CreatePathView,
+  createDataSource: CreateDataSourceView,
 };
 
 export default function Overlay({ onDelete, x, y }) {
@@ -14,14 +27,14 @@ export default function Overlay({ onDelete, x, y }) {
   const positionStyles = { left: x + "px", top: y + "px" };
   function navBack() {
     if (viewName === "base") onDelete();
-    setViewName(viewName === "actions" ? "base" : "actions");
+    else setViewName(viewName === "actions" ? "base" : "actions");
   }
 
   return (
     <section className="Overlay" style={positionStyles}>
       <nav>
         <button className="wrapper" onClick={navBack}>
-          {viewName === "base" ? <X /> : <ArrowLeft />}
+          {viewName === "base" ? <XIcon /> : <ArrowLeft />}
         </button>
       </nav>
       <CurrentView changeView={setViewName} />
@@ -47,6 +60,21 @@ function ActionsView({ changeView }) {
       to: "createLink",
       name: "Link to Resource",
     },
+    {
+      symbol: ArrowRight,
+      to: "createPath",
+      name: "Connect to Path",
+    },
+    {
+      symbol: Aperture,
+      to: "createPortal",
+      name: "Teleport to Location",
+    },
+    {
+      symbol: Database,
+      to: "createDataSource",
+      name: "Fetch Data",
+    },
   ];
 
   return (
@@ -65,5 +93,55 @@ function ActionsView({ changeView }) {
 }
 
 function CreateLinkView({ changeView }) {
-  return <div className="CreateLinkView"></div>;
+  return (
+    <form>
+      <h1> New Link </h1>
+      <input type="text" placeholder="Title" />
+      <input type="text" placeholder="URL" />
+      <input type="submit" value="Add Link" />
+    </form>
+  );
+}
+
+function CreatePathView({ changeView }) {
+  return (
+    <form>
+      <h1> New Path </h1>
+      <input type="text" placeholder="Path title" />
+      <label>
+        Destination:
+        <select placeholder="Destination">
+          {Object.values(exampleTour.locations).map(({ title }) => (
+            <option value={title}>{title}</option>
+          ))}
+        </select>
+      </label>
+      <input type="file" placeholder="Path Video" />
+      <input type="submit" value="Add Link" />
+    </form>
+  );
+}
+
+function CreateDataSourceView({ changeView }) {
+  return (
+    <form>
+      <h1> New Link </h1>
+      <input type="text" placeholder="URL" />
+      <input type="text" placeholder="Data format" />
+      <input type="submit" value="Add Source" />
+    </form>
+  );
+}
+
+function CreatePortalView({ changeView }) {
+  return (
+    <form>
+      <select>
+        {Object.values(exampleTour.locations).map(({ title }) => (
+          <option value={title}>{title}</option>
+        ))}
+      </select>
+      <input type="submit" value="Add Portal" />
+    </form>
+  );
 }
