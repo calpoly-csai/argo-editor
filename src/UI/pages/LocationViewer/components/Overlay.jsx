@@ -21,10 +21,15 @@ const views = {
   createDataSource: CreateDataSourceView,
 };
 
-export default function Overlay({ onDelete, x, y }) {
+export default function Overlay({ onDelete, x, y, z }) {
   const [viewName, setViewName] = useState("base");
   const CurrentView = views[viewName];
-  const positionStyles = { left: x + "px", top: y + "px" };
+  const depth = z * 100;
+  const positionStyles = {
+    left: x + "px",
+    top: y + "px",
+    transform: `perspective(500px) translate3d(-50%, -50%, ${depth}px)`,
+  };
   function navBack() {
     if (viewName === "base") onDelete();
     else setViewName(viewName === "actions" ? "base" : "actions");

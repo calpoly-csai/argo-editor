@@ -1,0 +1,36 @@
+.NavBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 40px;
+  background-color: white;
+  box-shadow: 0 0px 15px rgba(0, 0, 0, 0.185);
+
+  &.absolute {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 30px;
+    margin-left: 30px;
+  }
+
+  .base-ops {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    svg {
+      color: var(--primary);
+    }
+  }
+
+  .options {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}

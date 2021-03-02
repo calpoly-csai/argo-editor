@@ -1,26 +1,18 @@
 .LocationViewer {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 60px;
-    padding: 40px;
-    background-color: white;
-
-    h1 {
-      font-size: 35px;
-    }
-  }
+  max-height: 100vh;
 
   .content {
+    position: relative;
+
     overflow-x: scroll;
     overflow-y: hidden;
     height: 100%;
     width: 100%;
     img {
+      display: block;
+      max-height: 100vh;
       object-fit: cover;
     }
   }

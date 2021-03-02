@@ -2,6 +2,7 @@ import React from "react";
 
 import "./TourViewer.scss";
 import exampleTour from "../../assets/example-tour.json";
+import NavBar from "../../components/NavBar/NavBar";
 import Graph from "react-graph-vis";
 import { useHistory } from "react-router-dom";
 
@@ -25,17 +26,19 @@ const edges = locationList.flatMap(([loc, info]) => {
 const graph = { nodes, edges };
 
 const options = {
-  layout: {
-    hierarchical: true,
-  },
   edges: {
     color: "#000000",
   },
-  height: "500px",
+  autoResize: true,
+  height: "100%",
+  width: "100%",
+  locale: "en",
 };
 
 export default function TourViewer() {
   const history = useHistory();
+  let pageName = history.location.pathname.split("/");
+  pageName = pageName[pageName.length - 1];
 
   const graphEvents = {
     select: function (event) {
@@ -46,6 +49,7 @@ export default function TourViewer() {
 
   return (
     <article className="page TourViewer">
+      <NavBar title={pageName} className="absolute" />
       <Graph graph={graph} options={options} events={graphEvents} />
     </article>
   );
