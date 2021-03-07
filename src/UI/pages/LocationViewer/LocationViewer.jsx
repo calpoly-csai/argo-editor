@@ -40,9 +40,8 @@ export default function LocationViewer() {
     const { left, top } = e.target.getBoundingClientRect();
     const x = e.clientX - left;
     const y = e.clientY - top;
-    const z = depthMap[Math.floor(y)][Math.floor(x)];
-    console.log({ depth: z });
-    const position = { x, y, z };
+    // const z = depthMap[Math.floor(y)][Math.floor(x)];
+    const position = { x, y };
     setOverlays([...overlays, position]);
   }
 
@@ -50,16 +49,16 @@ export default function LocationViewer() {
     setOverlays((o) => o.filter((_, index) => index !== i));
   }
 
-  useEffect(function getDepthMap() {
-    if (!locationRef.current) return;
-    locationRef.current.onload = () => {
-      const b64Image = getBase64Image(locationRef.current);
-      pywebview.api.find_depth(b64Image).then((depth) => {
-        console.log(depth);
-        setDepthMap(depth);
-      });
-    };
-  }, []);
+  // useEffect(function getDepthMap() {
+  //   if (!locationRef.current) return;
+  //   locationRef.current.onload = () => {
+  //     const b64Image = getBase64Image(locationRef.current);
+  //     pywebview.api.find_depth(b64Image).then((depth) => {
+  //       console.log(depth);
+  //       setDepthMap(depth);
+  //     });
+  //   };
+  // }, []);
 
   return (
     <article className="LocationViewer">

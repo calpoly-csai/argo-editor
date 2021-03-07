@@ -12,6 +12,7 @@ import {
 
 import exampleTour from "../../../assets/example-tour.json";
 
+// A mapping of names to views. viewName will index into this array in order to display the correct UI component.
 const views = {
   base: BaseView,
   actions: ActionsView,
@@ -21,15 +22,20 @@ const views = {
   createDataSource: CreateDataSourceView,
 };
 
-export default function Overlay({ onDelete, x, y, z }) {
+export default function Overlay({ onDelete, x, y, onSave }) {
+  // The current screen of the overlay
   const [viewName, setViewName] = useState("base");
+
+  // Get the view based on view name
   const CurrentView = views[viewName];
-  const depth = z * 100;
+  // Position the overlay on top of the image
   const positionStyles = {
     left: x + "px",
     top: y + "px",
-    transform: `perspective(500px) translate3d(-50%, -50%, ${depth}px)`,
   };
+  /**
+   * Back button functionality.
+   */
   function navBack() {
     if (viewName === "base") onDelete();
     else setViewName(viewName === "actions" ? "base" : "actions");
@@ -49,12 +55,12 @@ export default function Overlay({ onDelete, x, y, z }) {
 
 function BaseView({ changeView }) {
   return (
-    <div className="BaseView">
+    <form className="BaseView">
       <input type="text" placeholder="Title" />
       <input type="text" placeholder="Description" />
 
       <button onClick={() => changeView("actions")}>Add Actions</button>
-    </div>
+    </form>
   );
 }
 
@@ -99,7 +105,7 @@ function ActionsView({ changeView }) {
 
 function CreateLinkView({ changeView }) {
   return (
-    <form>
+    <form className="CreateLinkView">
       <h1> New Link </h1>
       <input type="text" placeholder="Title" />
       <input type="text" placeholder="URL" />
@@ -110,7 +116,7 @@ function CreateLinkView({ changeView }) {
 
 function CreatePathView({ changeView }) {
   return (
-    <form>
+    <form className="CreatePathView">
       <h1> New Path </h1>
       <input type="text" placeholder="Path title" />
       <label>
@@ -129,7 +135,7 @@ function CreatePathView({ changeView }) {
 
 function CreateDataSourceView({ changeView }) {
   return (
-    <form>
+    <form className="CreateDataSourceView">
       <h1> New Link </h1>
       <input type="text" placeholder="URL" />
       <input type="text" placeholder="Data format" />
@@ -140,7 +146,7 @@ function CreateDataSourceView({ changeView }) {
 
 function CreatePortalView({ changeView }) {
   return (
-    <form>
+    <form className="CreatePortalView">
       <select>
         {Object.values(exampleTour.locations).map(({ title }) => (
           <option value={title}>{title}</option>
