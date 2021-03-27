@@ -1,0 +1,18 @@
+.LocationViewer {
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+
+  .content {
+    position: relative;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    height: 100%;
+    width: 100%;
+    img {
+      display: block;
+      height: calc(100vh - 80px);
+      object-fit: cover;
+    }
+  }
+}

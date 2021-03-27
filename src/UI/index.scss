@@ -26,7 +26,31 @@ body {
   background-color: white;
 }
 
-button {
+article.page {
+  width: 100%;
+  height: 100%;
+  padding: 50px;
+  background-color: whitesmoke;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+h1 {
+  font-size: 50px;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 40px;
+  font-weight: 600;
+}
+
+button,
+input[type="submit"] {
   padding: 10px 20px;
   cursor: pointer;
   background: var(--primary);
@@ -45,6 +69,16 @@ button {
 
   &:active {
     transform: scale(0.95);
+  }
+}
+
+button.wrapper {
+  padding: 0;
+  border-radius: 0;
+  background-color: transparent;
+
+  svg {
+    color: var(--primary);
   }
 }
 

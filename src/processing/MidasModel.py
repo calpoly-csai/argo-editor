@@ -20,8 +20,7 @@ def midas_find_depth(b64_image:str) -> str:
     header = b64_image.split(",")[0] + ","
     image = decode_image(b64_image)
     result = predict_depth(image)
-    image = Image.fromarray(image).convert("RGB") # Just for validation purposes. We won't need the extra 3 dimensions in production
-    return header + encode_image(result)
+    return result.tolist()
 
 
 def decode_image(uri: str) -> np.array:

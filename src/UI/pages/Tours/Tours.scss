@@ -1,0 +1,15 @@
+.Tours {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  h1 {
+    margin-bottom: 30px;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 7px;
+  }
+}

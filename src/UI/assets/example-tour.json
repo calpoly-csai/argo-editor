@@ -1,0 +1,93 @@
+{
+  "title": "Cal Poly Tour",
+  "description": "A tour of Cal Poly",
+
+  "locations": {
+    "dexterEdge": {
+      "title": "Dexter Edge",
+      "description": "Dexter Edge",
+      "panorama": "dexterEdge",
+      "overlays": [
+        {
+          "title": "Example",
+          "description": "This is an example modal",
+          "position": [1, 2, 3],
+          "actions": [
+            {
+              "type": "external-link",
+              "title": "Google",
+              "link": "www.google.com"
+            },
+            {
+              "title": "Dexter Mid",
+              "description": "Goes to the Dexter Mid",
+              "position": [200, 200, 3],
+              "actions": [
+                {
+                  "type": "path",
+                  "title": "Go",
+                  "path": "<link-to-resource>",
+                  "destination": "dexterMid"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+
+    "dexterMid": {
+      "title": "Dexter Mid",
+      "description": "Where people hang out on Thursdays",
+      "panorama": "dexterMid",
+      "overlays": [
+        {
+          "title": "Dexter edge",
+          "description": "",
+          "position": [200, 200, 3],
+          "actions": [
+            {
+              "type": "path",
+              "title": "Go",
+              "path": "<link-to-resource>",
+              "destination": "dexterEdge"
+            }
+          ]
+        },
+        {
+          "title": "Cotchett front",
+          "description": "",
+          "position": [200, 200, 3],
+          "actions": [
+            {
+              "type": "path",
+              "title": "Go",
+              "path": "<link-to-resource>",
+              "destination": "cotchettFront"
+            }
+          ]
+        }
+      ]
+    },
+    "cotchettFront": {
+      "title": "Cotchett Front",
+      "description": "Where people hang out on Thursdays",
+      "panorama": "cotchettFront",
+      "overlays": [
+        {
+          "title": "Dexter Mid",
+          "description": "",
+          "position": [200, 200, 3],
+          "actions": [
+            {
+              "type": "path",
+              "title": "Go",
+              "path": "<link-to-resource>",
+              "destination": "dexterMid"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
